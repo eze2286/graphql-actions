@@ -26,9 +26,11 @@ jobs:
     - name: Docker Build Image
       run: |
         docker build -t eze2286/graphql-actions:0.0.1 .
+        docker build -t eze2286/graphql-actions:latest .
     - name: Push Docker Image
       run: |
         docker push eze2286/graphql-actions:0.0.1
+        docker push eze2286/graphql-actions:latest
     
       
     
