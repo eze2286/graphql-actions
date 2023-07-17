@@ -21,10 +21,15 @@ jobs:
       env:
         DOCKER_USER: ${{ secrets.DOCKERHUB_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
-      run: |
-        echo "Iniciando login"
+      run: |        
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-        echo "Fin del login"
+    - name: Docker Build Image
+      run: |
+        docker build -t eze2286/graphql-actions:0.0.1 .
+    - name: Push Docker Image
+      run: |
+        docker push eze2286/graphql-actions:0.0.1
+    
       
     
     #- name: Build the Docker image
